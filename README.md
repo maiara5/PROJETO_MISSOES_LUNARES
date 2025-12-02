@@ -17,19 +17,19 @@ Este projeto é um sistema de gerenciamento de missões espaciais desenvolvido e
 
 Certifique-se de ter as seguintes ferramentas instaladas:
 
-* **Java 17 **
+* **Java 17**
 * **Apache Maven 3.8+**
 
 
 ## Compilção e Execução:
 
-Execução via VS Code (Ambiente Recomendado)
-Baixe o Projeto: Baixe o arquivo ZIP do repositório ou clone-o.
-Abra no VS Code: Use File > Open Folder... e selecione a pasta raiz do projeto.
-Execute o main():
-Navegue até o arquivo principal que contém o método main() (provavelmente em src/main/java/...).
-Localize o botão "Run" (ou "Run Java") que aparece acima da declaração do método main().
-Clique em "Run Java" para iniciar a aplicação diretamente no terminal integrado do VS Code.
+- Execução via VS Code (Ambiente Recomendado)
+- Baixe o Projeto: Baixe o arquivo ZIP do repositório ou clone-o.
+- Abra no VS Code: Use File > Open Folder... e selecione a pasta raiz do projeto.
+- Execute o main():
+- Navegue até o arquivo principal que contém o método main() (provavelmente em src/main/java/...).
+- Localize o botão "Run" (ou "Run Java") que aparece acima da declaração do método main().
+- Clique em "Run Java" para iniciar a aplicação diretamente no terminal integrado do VS Code.
 
 
 
