@@ -1,3 +1,12 @@
+package com.lunarsystems.model;
+
+import java.io.Serializable;
+import java.time.Duration;
+import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Objects;
+
 public class Missao implements Serializable {
     private static final long serialVersionUID = 1L;
 
@@ -83,3 +92,4 @@ public class Missao implements Serializable {
         return Objects.hash(codigo);
     }
 }
+
