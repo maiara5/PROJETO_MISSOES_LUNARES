@@ -9,11 +9,9 @@
     <version>1.0-SNAPSHOT</version>
 
     <properties>
-        <!-- CORREÇÃO 1: Adiciona o encoding UTF-8 para evitar problemas com caracteres especiais -->
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <maven.compiler.source>17</maven.compiler.source>
         <maven.compiler.target>17</maven.compiler.target>
-        <!-- Propriedade para gerenciar a versão do Jackson (melhor prática) -->
         <jackson.version>2.15.2</jackson.version> 
     </properties>
 
@@ -25,15 +23,12 @@
             <version>3.4.1</version>
         </dependency>
 
-        <!-- NOVO: Módulo Jackson para suportar java.time.LocalDate e outras classes do Java 8 Data/Hora -->
-        <!-- O Nitrite usa Jackson internamente. Este módulo é obrigatório para java.time.* -->
         <dependency>
             <groupId>com.fasterxml.jackson.datatype</groupId>
             <artifactId>jackson-datatype-jsr310</artifactId>
             <version>${jackson.version}</version>
         </dependency>
 
-        <!-- Dependência Joda-Convert -->
         <dependency>
             <groupId>org.joda</groupId>
             <artifactId>joda-convert</artifactId>
@@ -42,3 +37,4 @@
     </dependencies>
 
 </project>
+
