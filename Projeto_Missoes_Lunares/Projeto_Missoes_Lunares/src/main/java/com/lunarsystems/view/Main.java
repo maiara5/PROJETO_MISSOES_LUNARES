@@ -47,9 +47,6 @@ public class Main {
         }
     }
 
-    /**
-     * Helper para ler uma linha do console com tratamento de IOException.
-     */
     private static String readLineSafe() {
         try {
             String line = in.readLine();
@@ -60,11 +57,7 @@ public class Main {
         }
     }
 
-    /**
-     * Helper para ler e validar um número inteiro positivo (ou zero) a partir do
-     * console.
-     */
-    private static int readPositiveInt(String prompt, String errorMsg, boolean allowZero) {
+   private static int readPositiveInt(String prompt, String errorMsg, boolean allowZero) {
         int value = -1;
         while (value < (allowZero ? 0 : 1)) {
             System.out.print(prompt);
@@ -87,9 +80,7 @@ public class Main {
         return value;
     }
 
-    /**
-     * Helper para ler e validar uma data no formato YYYY-MM-DD.
-     */
+    /*Helper para ler e validar uma data no formato (AAAA-MM-DD)*/
     private static LocalDate readDate(String prompt) {
         LocalDate date = null;
         while (date == null) {
@@ -108,11 +99,9 @@ public class Main {
         return date;
     }
 
-    /**
-     * Coleta dados do usuário para criar uma nova missão, incluindo
-     * validação de formato de data, ordem cronológica e entradas numéricas.
-     * 
-     * @param service O serviço de missões.
+    /*
+      Coleta dados do usuário para criar uma nova missão, incluindo
+      validação de formato de data, ordem cronológica e entradas numéricas.
      */
     private static void criarMissao(MissaoService service) {
         System.out.println("\n=== ➕ Criar Nova Missão ===");
@@ -280,5 +269,6 @@ public class Main {
         }
     }
 }
+
 
 
