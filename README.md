@@ -1,3 +1,5 @@
+# PROJETO_MISSOES_LUNARES Realizado nas disciplina de Algoritmos e Programação pelas alunas: Maiara Marques Ferreira, Gabrielle Miyuki Saito e Isadora Moreira Theobaldo. #
+
 # PROJETO_MISSOES_LUNARES
 Este projeto é um sistema de gerenciamento de missões espaciais desenvolvido em Java, utilizando uma arquitetura baseada em Modelo-Serviço-Repositório. O sistema permite cadastrar, listar e visualizar detalhes de missões, astronautas e naves designadas, operando através de uma interface de linha de comando. Utilizando **Maven** para gestão de dependências e compilação, e implementa persistência de dados através de **Serialização Binária** e **NitriteDB**.
 
