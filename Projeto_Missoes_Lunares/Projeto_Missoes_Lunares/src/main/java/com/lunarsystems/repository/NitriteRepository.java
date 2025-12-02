@@ -32,8 +32,6 @@ public class NitriteRepository implements AutoCloseable {
         return repo.find(eq("codigo", codigo)).firstOrDefault();
     }
 
-    /**
-     */
     @Override
     public void close() {
         if (!db.isClosed()) {
@@ -42,3 +40,4 @@ public class NitriteRepository implements AutoCloseable {
         }
     }
 }
+
