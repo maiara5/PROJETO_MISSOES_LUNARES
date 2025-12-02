@@ -1,8 +1,8 @@
 package com.lunarsystems.model;
 
 import java.io.Serializable;
-import java.time.Duration;
-import java.time.LocalDate;
+import java.time.Duration; 
+import java.time.LocalDate; //ano-mes-dia
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
@@ -23,7 +23,7 @@ public class Missao implements Serializable {
     public Missao() {}
 
     public Missao(String codigo, String nome, LocalDate dataLancamento, LocalDate dataRetorno,
-                  String destino, String objetivo, Nave nave) {
+                  String destino, String objetivo, Nave nave) { //criando construtor Missao
         this.codigo = codigo;
         this.nome = nome;
         this.dataLancamento = dataLancamento;
@@ -33,6 +33,7 @@ public class Missao implements Serializable {
         this.nave = nave;
     }
 
+    //getters e setters das caracteristicas da missao
     public String getCodigo() { return codigo; }
     public void setCodigo(String codigo) { this.codigo = codigo; }
 
@@ -65,19 +66,19 @@ public class Missao implements Serializable {
         if (tripulacao.size() >= nave.getCapacidadeTripulantes())
             throw new IllegalStateException("Nave incapaz de receber mais tripulantes");
         tripulacao.add(a);
-    }
+    } //valida o astronauta (não nulo, idade ok, espaço na nave) e então adiciona à tripulação
 
     public Duration duracao() {
         if (dataLancamento == null || dataRetorno == null) return Duration.ZERO;
         return Duration.between(dataLancamento.atStartOfDay(), dataRetorno.atStartOfDay());
-    }
+    } //calcula a duração da viagem dias/hopras
 
     @Override
     public String toString() {
         return String.format(
             "Missao[codigo=%s, nome=%s, lancamento=%s, retorno=%s, destino=%s, objetivo=%s, resultado=%s, nave=%s, tripulacao=%d]",
             codigo, nome, dataLancamento, dataRetorno, destino, objetivo, resultado, nave, tripulacao.size());
-    }
+    } //cria um string tudo junto da missão
 
     @Override
     public boolean equals(Object o) {
@@ -85,11 +86,12 @@ public class Missao implements Serializable {
         if (!(o instanceof Missao)) return false;
         Missao missao = (Missao) o;
         return Objects.equals(codigo, missao.codigo);
-    }
+    } //missão vai ser igual se código ==
 
     @Override
     public int hashCode() {
         return Objects.hash(codigo);
-    }
+    } //gera numero baseado no codigo
 }
+
 
