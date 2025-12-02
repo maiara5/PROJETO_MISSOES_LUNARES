@@ -1,3 +1,18 @@
+package com.lunarsystems.model;
+
+import com.fasterxml.jackson.annotation.JsonSubTypes;
+import com.fasterxml.jackson.annotation.JsonTypeInfo;
+import java.io.Serializable;
+
+@JsonTypeInfo(
+    use = JsonTypeInfo.Id.NAME,              
+    include = JsonTypeInfo.As.PROPERTY,     
+    property = "naveType"                  
+)
+@JsonSubTypes({
+    @JsonSubTypes.Type(value = NaveTripulada.class, name = "TRIPULADA"),
+    @JsonSubTypes.Type(value = NaveCargueira.class, name = "CARGUEIRA")
+})
 public abstract class Nave implements Serializable {
     private static final long serialVersionUID = 1L;
 
@@ -31,3 +46,4 @@ public abstract class Nave implements Serializable {
                 id, nome, getTipo(), capacidadeTripulantes);
     }
 }
+
