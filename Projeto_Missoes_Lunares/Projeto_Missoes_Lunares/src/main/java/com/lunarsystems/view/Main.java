@@ -102,7 +102,7 @@ public class Main {
             try {
                 date = LocalDate.parse(input);
             } catch (DateTimeParseException e) {
-                System.out.println("Data inválida. Por favor, use o formato YYYY-MM-DD.");
+                System.out.println("Data inválida. Por favor, use o formato ANO-MÊS-DIA(AAAA-MM-DD).");
             }
         }
         return date;
@@ -123,12 +123,12 @@ public class Main {
         String nome = readLineSafe();
 
         // VALIDAÇÃO: Data de Lançamento
-        LocalDate lanc = readDate("Data lançamento (YYYY-MM-DD): ");
+        LocalDate lanc = readDate("Data lançamento (AAAA-MM-DD): ");
 
         // VALIDAÇÃO: Data de Retorno
         LocalDate ret = null;
         while (ret == null) {
-            ret = readDate("Data retorno (YYYY-MM-DD): ");
+            ret = readDate("Data retorno (AAAA-MM-DD): ");
             // Validação de Lógica: Retorno deve ser igual ou APÓS o Lançamento
             if (ret.isBefore(lanc)) {
                 System.out
@@ -241,7 +241,7 @@ public class Main {
         if (m == null) {
             System.out.println("\nMissão não encontrada para o código: " + codigo);
         } else {
-            System.out.println("\n=== 🛰️ Detalhes da Missão: " + m.getNome() + " ===");
+            System.out.println("\n=== Detalhes da Missão: " + m.getNome() + " ===");
             System.out.println("CÓDIGO: " + m.getCodigo());
             System.out.println("DESTINO: " + m.getDestino());
             System.out.println("OBJETIVO: " + m.getObjetivo());
@@ -280,4 +280,5 @@ public class Main {
         }
     }
 }
+
 
