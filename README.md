@@ -1,7 +1,7 @@
 # PROJETO_MISSOES_LUNARES
 Este projeto é um sistema de gerenciamento de missões espaciais desenvolvido em Java, utilizando uma arquitetura baseada em Modelo-Serviço-Repositório. O sistema permite cadastrar, listar e visualizar detalhes de missões, astronautas e naves designadas, operando através de uma interface de linha de comando (CLI)
 
-##Funcionalidades Principais
+## Funcionalidades Principais
 - Cadastro de Missões: Criação de novas missões com código, nome, datas (lançamento e retorno), destino, objetivo e nave associada.
 - Gestão de Datas: Validação rigorosa garantindo que a data de retorno seja igual ou posterior à data de lançamento.
 - Cálculo de Duração: Calcula a duração total da missão em dias.
