@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.lunarsystems</groupId>
+    <artifactId>Projeto_Missoes_Lunares</artifactId>
+    <version>1.0-SNAPSHOT</version>
+
+    <properties>
+        <!-- CORREÇÃO 1: Adiciona o encoding UTF-8 para evitar problemas com caracteres especiais -->
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <maven.compiler.source>17</maven.compiler.source>
+        <maven.compiler.target>17</maven.compiler.target>
+        <!-- Propriedade para gerenciar a versão do Jackson (melhor prática) -->
+        <jackson.version>2.15.2</jackson.version> 
+    </properties>
+
+    <dependencies>
+        <!-- Dependência Nitrite DB (v3.4.1) -->
+        <dependency>
+            <groupId>org.dizitart</groupId>
+            <artifactId>nitrite</artifactId>
+            <version>3.4.1</version>
+        </dependency>
+
+        <!-- NOVO: Módulo Jackson para suportar java.time.LocalDate e outras classes do Java 8 Data/Hora -->
+        <!-- O Nitrite usa Jackson internamente. Este módulo é obrigatório para java.time.* -->
+        <dependency>
+            <groupId>com.fasterxml.jackson.datatype</groupId>
+            <artifactId>jackson-datatype-jsr310</artifactId>
+            <version>${jackson.version}</version>
+        </dependency>
+
+        <!-- Dependência Joda-Convert -->
+        <dependency>
+            <groupId>org.joda</groupId>
+            <artifactId>joda-convert</artifactId>
+            <version>2.2.2</version>
+        </dependency>
+    </dependencies>
+
+</project>
