@@ -3,7 +3,7 @@ package com.lunarsystems.model;
 import com.fasterxml.jackson.annotation.JsonSubTypes;
 import com.fasterxml.jackson.annotation.JsonTypeInfo;
 import java.io.Serializable;
-
+//para o json
 @JsonTypeInfo(
     use = JsonTypeInfo.Id.NAME,              
     include = JsonTypeInfo.As.PROPERTY,     
@@ -46,4 +46,5 @@ public abstract class Nave implements Serializable {
                 id, nome, getTipo(), capacidadeTripulantes);
     }
 }
+
 
