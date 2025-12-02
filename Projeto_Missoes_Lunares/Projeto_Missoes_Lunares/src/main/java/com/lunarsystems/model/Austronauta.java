@@ -4,7 +4,7 @@ import java.io.Serializable;
 import java.util.Objects;
 
 public class Austronauta implements Serializable {
-    private static final long serialVersionUID = 1L;
+    private static final long serialVersionUID = 1L;  //esse número serve para identificar a versão da classe ao serializar/deserializar
 
     private String id;
     private String nome;
@@ -20,8 +20,9 @@ public class Austronauta implements Serializable {
         this.idade = idade;
         this.especialidade = especialidade;
         this.horasVoo = horasVoo;
-    }
-
+    } ////setando as caracteristicas do astronauta
+    
+    //getters e setters das caracteristicas
     public String getId() { return id; }
     public void setId(String id) { this.id = id; }
 
@@ -39,24 +40,26 @@ public class Austronauta implements Serializable {
 
     public boolean isElegivel() {
         return this.idade >= 21;
-    }
+    } //metodo pra conferir se a idade é maior que 21 ou não
 
-    @Override
-    public String toString() {
+    @Override //o próximo método substitui um método da superclasse
+    
+    public String toString() { //transforma o objeto em texto
         return String.format("Astronauta[id=%s, nome=%s, idade=%d, especialidade=%s, horas=%d]",
                 id, nome, idade, especialidade, horasVoo);
     }
 
     @Override
-    public boolean equals(Object o) {
+    public boolean equals(Object o) { //esse objeto é igual ao outro?
         if (this == o) return true;
         if (!(o instanceof Austronauta)) return false;
         Austronauta that = (Austronauta) o;
         return Objects.equals(id, that.id);
-    }
+    } //sãp iguais desde que tenham o mesmo id
 
     @Override
     public int hashCode() {
         return Objects.hash(id);
-    }
+    } //gera um numero baseado no id pro java conseguir guardar e encontrar obj
 }
+
