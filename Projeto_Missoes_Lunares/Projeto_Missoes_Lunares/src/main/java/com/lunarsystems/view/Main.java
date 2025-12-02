@@ -23,7 +23,7 @@ public class Main {
                 System.out.println("\n SISTEMA LUNAR - MENU PRINCIPAL ");
                 System.out.println("1 - Criar nova missão");
                 System.out.println("2 - Listar missões cadastradas");
-                System.out.println("3 - Visualizar missão por código (detalhes)");
+                System.out.println("3 - Visualizar missão por código");
                 System.out.println("4 - Sair do sistema");
                 System.out.print("Escolha uma opção: ");
                 String opt = readLineSafe();
@@ -38,11 +38,11 @@ public class Main {
                         System.out.println("Saindo do Sistema Lunar. Adeus!");
                         return;
                     }
-                    default -> System.out.println("❌ Opção inválida. Por favor, escolha um número de 1 a 4.");
+                    default -> System.out.println("Opção inválida. Por favor, escolha um número de 1 a 4.");
                 }
             }
         } catch (Exception e) {
-            System.err.println("\n❌ Ocorreu um erro fatal no sistema:");
+            System.err.println("\nOcorreu um erro fatal no sistema:");
             e.printStackTrace();
         }
     }
@@ -70,17 +70,17 @@ public class Main {
             System.out.print(prompt);
             String input = readLineSafe();
             if (input == null || input.isEmpty()) {
-                System.out.println("❌ O valor não pode ser vazio.");
+                System.out.println("O valor não pode ser vazio.");
                 continue;
             }
             try {
                 value = Integer.parseInt(input);
                 if (value < (allowZero ? 0 : 1)) {
-                    System.out.println("❌ " + errorMsg);
+                    System.out.println(errorMsg);
                 }
             } catch (NumberFormatException e) {
                 System.out
-                        .println("❌ Entrada inválida. Por favor, insira um número inteiro.");
+                        .println("Entrada inválida. Por favor, insira um número inteiro.");
                 value = -1; // Força a repetição
             }
         }
@@ -96,13 +96,13 @@ public class Main {
             System.out.print(prompt);
             String input = readLineSafe();
             if (input == null || input.isEmpty()) {
-                System.out.println("❌ A data não pode ser vazia.");
+                System.out.println("A data não pode ser vazia.");
                 continue;
             }
             try {
                 date = LocalDate.parse(input);
             } catch (DateTimeParseException e) {
-                System.out.println("❌ Data inválida. Por favor, use o formato YYYY-MM-DD.");
+                System.out.println("Data inválida. Por favor, use o formato YYYY-MM-DD.");
             }
         }
         return date;
@@ -132,7 +132,7 @@ public class Main {
             // Validação de Lógica: Retorno deve ser igual ou APÓS o Lançamento
             if (ret.isBefore(lanc)) {
                 System.out
-                        .println("❌ Data de Retorno deve ser igual ou posterior à Data de Lançamento (" + lanc + ").");
+                        .println("Data de Retorno deve ser igual ou posterior à Data de Lançamento (" + lanc + ").");
                 ret = null; // Força a repetição
             }
         }
@@ -156,7 +156,7 @@ public class Main {
             tipo = readLineSafe();
             if (tipo != null && (tipo.equalsIgnoreCase("T") || tipo.equalsIgnoreCase("C")))
                 break;
-            System.out.println("❌ Tipo de nave inválido. Use 'T' ou 'C'.");
+            System.out.println("Tipo de nave inválido. Use 'T' ou 'C'.");
         }
 
         // VALIDAÇÃO: Capacidade de Tripulantes
@@ -192,18 +192,18 @@ public class Main {
 
             try {
                 m.adicionarAstronauta(new Austronauta(aid, an, idade, esp, horas));
-                System.out.println("✅ Astronauta adicionado.");
+                System.out.println("Astronauta adicionado.");
             } catch (Exception ex) {
-                System.out.println("❌ Erro ao adicionar astronauta: " + ex.getMessage());
+                System.out.println("Erro ao adicionar astronauta: " + ex.getMessage());
             }
         }
 
         try {
             service.cadastrarMissao(m);
-            System.out.println("\n✅ Missão **" + m.getNome() + "** (" + m.getCodigo()
+            System.out.println("\nMissão **" + m.getNome() + "** (" + m.getCodigo()
                     + ") cadastrada com sucesso! Lançamento: " + m.getDataLancamento());
         } catch (Exception e) {
-            System.out.println("\n❌ Erro ao cadastrar missão: " + e.getMessage());
+            System.out.println("\nErro ao cadastrar missão: " + e.getMessage());
         }
 
     }
@@ -211,9 +211,9 @@ public class Main {
     private static void listar(MissaoService service) {
         List<Missao> list = service.listarMissao();
         if (list.isEmpty()) {
-            System.out.println("\n❌ Nenhuma missão cadastrada.");
+            System.out.println("\nNenhuma missão cadastrada.");
         } else {
-            System.out.println("\n=== 🪐 Lista de Missões Cadastradas (" + list.size() + ") ===");
+            System.out.println("\n=== Lista de Missões Cadastradas (" + list.size() + ") ===");
             System.out.println("--------------------------------------------------------------------------------");
             list.forEach(m -> {
                 long duracaoDias = (m.duracao() != null) ? m.duracao().toDays() : 0;
@@ -232,14 +232,14 @@ public class Main {
         String codigo = readLineSafe();
 
         if (codigo == null || codigo.isBlank()) {
-            System.out.println("❌ O código da missão não pode ser vazio.");
+            System.out.println("O código da missão não pode ser vazio.");
             return;
         }
 
         Missao m = service.buscarPorCodigo(codigo);
 
         if (m == null) {
-            System.out.println("\n❌ Missão não encontrada para o código: " + codigo);
+            System.out.println("\nMissão não encontrada para o código: " + codigo);
         } else {
             System.out.println("\n=== 🛰️ Detalhes da Missão: " + m.getNome() + " ===");
             System.out.println("CÓDIGO: " + m.getCodigo());
@@ -252,7 +252,7 @@ public class Main {
             System.out.println("DURAÇÃO TOTAL: " + duracaoDias + " dias");
 
             // Detalhes da Nave
-            System.out.println("\n--- 🚀 Nave Designada ---");
+            System.out.println("\n--- Nave Designada ---");
             Nave nave = m.getNave();
             System.out.println("ID: " + nave.getId());
             System.out.println("NOME: " + nave.getNome());
@@ -267,7 +267,7 @@ public class Main {
 
             // Detalhes da Tripulação
             List<Austronauta> tripulacao = m.getTripulacao();
-            System.out.println("\n--- 🧑‍🚀 Tripulação (" + tripulacao.size() + " membros) ---");
+            System.out.println("\n--- Tripulação (" + tripulacao.size() + " membros) ---");
             if (tripulacao.isEmpty()) {
                 System.out.println("Nenhuma tripulação cadastrada para esta missão.");
             } else {
@@ -280,3 +280,4 @@ public class Main {
         }
     }
 }
+
